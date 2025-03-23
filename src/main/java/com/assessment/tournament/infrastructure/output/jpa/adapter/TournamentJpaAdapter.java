@@ -22,4 +22,9 @@ public class TournamentJpaAdapter implements TournamentPersistencePort {
     public List<Tournament> getByUserId(String userId) {
         return tournamentRepository.findByUserId(userId).stream().map(tournamentEntityMapper::toModel).toList();
     }
+
+    @Override
+    public Tournament getById(Long id) {
+        return tournamentEntityMapper.toModel(tournamentRepository.findById(id).orElseThrow(RuntimeException::new));
+    }
 }

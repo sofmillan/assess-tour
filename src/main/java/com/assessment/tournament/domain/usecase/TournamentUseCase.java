@@ -22,4 +22,9 @@ public class TournamentUseCase implements TournamentServicePort {
         tournament.setRemainingCapacity(tournament.getCategory().getCapacity());
         return tournamentPersistencePort.save(tournament);
     }
+
+    @Override
+    public Tournament findById(Long id) {
+        return null;
+    }
 }
